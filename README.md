@@ -100,7 +100,7 @@ Check the cuda, cudnn and python environment supported by torch.
 
 ## Install some essential Package
 
-This help to exicute C and C++ code for testing purpose.
+This help to execute C and C++ code for testing purpose.
 ```bash
 sudo apt install build-essential
 ``` 
@@ -126,8 +126,8 @@ Check the suitable download version from [link](https://www.tensorflow.org/insta
 2. Visit Nvidia developer page.
 3. Register/Login if needed.
 4. Select **Linux -> x86-64 -> WSl-Ubuntu -> 2.0 -> runfile(local)**
-4. Exicute the given code to download the cuda. e.g. [wget https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda_12.5.0_555.42.02_linux.run]()
-5. Exicute the given code to install cuda. [sudo sh cuda_12.5.0_555.42.02_linux.run]()
+4. Execute the given code in nvidia developer page to download the cuda. e.g. [wget https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda_12.5.0_555.42.02_linux.run]()
+5. Execute the given code in nvidia developer page to install cuda. e.g. [sudo sh cuda_12.5.0_555.42.02_linux.run]()
 7. **accect** the policy
 8. Go down and mark cuda toolkit, Cuda demo suite, cuda documentation is selected and click on install.
 
