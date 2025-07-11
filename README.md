@@ -10,7 +10,7 @@ Steps wise guide to install cuda in wsl ubuntu24 for tenserflow and torch.
 
 ## Download Windows subsystem for linux from microsoft store.
 
-Use the download link [https://apps.microsoft.com/detail/9P9TQF7MRM4R](https://apps.microsoft.com/detail/9P9TQF7MRM4R).\
+Use the download link [https://apps.microsoft.com/detail/9P9TQF7MRM4R](https://apps.microsoft.com/detail/9P9TQF7MRM4R).
 
 ## Open Terminal
 
@@ -113,7 +113,15 @@ To check if miniconda is installed or not
 ```bash
 bash ./Miniconda3-latest-Linux-x86_64.sh
 ```
-use **Ctrl + C** to exit.
+1. Press any key to continue.
+2. yes
+3. press enter key.
+4. yes
+
+Remove the downloaded sh file(optional)
+```bash
+rm -v ./Miniconda3-latest-Linux-x86_64.sh
+```
 
 ```bash
 sudo apt install build-essential
@@ -175,4 +183,9 @@ Copyright (c) 2005-2025 NVIDIA Corporation
 Built on Tue_Jul_11_00:00:00_PDT_2025
 Cuda compilation tools, release 12.5, V12.5.0
 Build cuda_12.5.r12.5/compiler.12345678_0
+```
+
+Remove the file(optional)
+```bash
+rm -v cuda_12.5.0_555.42.02_linux.run
 ```
