@@ -300,3 +300,48 @@ echo $LD_LIBRARY_PATH
 rm -v TensorRT-10.12.0.36.Linux.x86_64-gnu.cuda-12.9.tar.gz
 ```
 
+## Create a python environment 
+Check python version supported cuda 12.5 support python 3.9-3.12
+```bash
+conda create --name tf python=3.12
+```
+
+activate this environment
+```bash
+conda activate tf
+```
+
+To see all the available environment
+```bash
+conda env list
+```
+
+To delete a environment
+```bash
+conda env remove --name myenv
+``` 
+
+Install tenserflow for cuda
+```bash
+python -m pip install tensorflow[and-cuda]
+```
+
+Check cuda is working in tensorflow or not
+```bash
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+
+Prefer to craete a dir to work with eg. **./ml**
+```bash
+mkdir ml && cd ml
+```
+
+## To run a sample code
+```bash
+echo "import tensorflow as tf
+print('tf.config.list_physical_devices("GPU")')
+print(tf.__version__)" > test.py
+```
+```bash
+python test.py
+```
