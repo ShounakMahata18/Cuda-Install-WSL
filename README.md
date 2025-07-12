@@ -258,3 +258,45 @@ Run the compiled code.
 Remove those craeted file(optional)
 ```bash
 rm -v test_cudnn.c test_cudnn
+```
+
+## Install TensorRT for optimized inference (optional)
+1. Go to [https://developer.nvidia.com/tensorrt/download](https://developer.nvidia.com/tensorrt/download) to get the latest TensorRT
+2. Go to sutable TensorRT which support the downloaded cuda e.g. **cuda-12.5 support TensorRT 10**
+3. I am downloading **TensorRT 10.12 GA for Linux x86_64 and CUDA 12.0 to 12.9 TAR Package** [link TensorRT for cuda-12.5](https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.12.0/tars/TensorRT-10.12.0.36.Linux.x86_64-gnu.cuda-12.9.tar.gz)
+4. Move the **TensorRT** to ubuntu home.
+```bash
+mv /mnt/c/Users/shoun/Downloads/TensorRT-10.12.0.36.Linux.x86_64-gnu.cuda-12.9.tar.gz ~/
+```
+5. Extract the download file.
+```bash
+tar -xzvf TensorRT-10.12.0.36.Linux.x86_64-gnu.cuda-12.9.tar.gz
+```
+6. Move the TensorRT file to local.
+```bash
+sudo mv TensorRT-10.12.0.36 /usr/local/TensorRT-10.12.0
+```
+7. Edit the ~/bashrc file
+```bash
+nano ~/.bashrc
+```
+8. Add this path at the end ***For different cuda and TensorRt version replace the version with the desired version**.
+```
+export PATH=/usr/local/cuda-12.5/bin:/usr/local/TensorRT-10.12.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.5/lib64:/usr/local/TensorRT-10.12.0/lib:$LD_LIBRARY_PATH
+```
+9. Execute the bashrc file.
+```bash
+source ~/.bashrc
+```
+10. Test TensorRT is properly installed or not use.
+```bash
+echo $PATH
+echo $LD_LIBRARY_PATH
+```
+
+11. Remove the TensorRT file (optional)
+```bash
+rm -v TensorRT-10.12.0.36.Linux.x86_64-gnu.cuda-12.9.tar.gz
+```
+
