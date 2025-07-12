@@ -345,3 +345,27 @@ print(tf.__version__)" > test.py
 ```bash
 python test.py
 ```
+
+## Install Torch
+
+1. Go to [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
+to check cuda support for torch.
+
+2. Select **Stable(2.7.1) -> Linux -> Pip -> CUDA 12.6**
+
+3. Since, cuda 12.5 is installed torch does not work.
+
+4. Execute the given code e.g. [pip3 install torch torchvision torchaudio]() in the desired environment.
+
+## Open in VS-Code
+**First Download VS code**
+1. Go to VS code and click on the buttom left corner **Open a Remote Window**.
+2. Open terminal and activate the environment tf
+3. Open folder ml from the file explorer or use [cd ml](), [code .]()
+ to open the file in VS code.
+
+---
+
+Give star to the repo if you like it, from [Shounak Mahata](https://github.com/ShounakMahata18).
+
+Credits [mahbub-aumi](https://github.com/mahbub-aumi/tensorflow-cuda-wsl-ubuntu24.04?tab=readme-ov-file)
