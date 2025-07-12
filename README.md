@@ -189,3 +189,72 @@ Remove the file(optional)
 ```bash
 rm -v cuda_12.5.0_555.42.02_linux.run
 ```
+
+## Install Cudnn
+
+1. Go to [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive) and download the suitable supported cudnn.
+2. Register/Login to your nvidia developer account.
+3. In the example i have downloaded the cuda 12.5 then the cudnn which support cuda 12.x will be downloaded.
+5. Download the **Local installer for Linux x86_64(Tar)**.
+6. Copy the file from **Download** dir to ubuntu home dir ***rename the user in the path**.
+```bash
+mv /mnt/c/Users/shoun/Downloads/cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz ~/
+```
+6. Extract the moved file by.
+```bash
+tar -xvf cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
+```
+7. Copy the cudnn files to cuda toolkit ***change the cuda version**
+```bash
+cd cudnn-linux-x86_64-8.9.7.29_cuda12-archive/
+```
+```bash
+sudo cp include/cudnn*.h /usr/local/cuda-12.5/include
+```
+```bash
+sudo cp lib/libcudnn* /usr/local/cuda-12.5/lib64
+```
+```bash
+sudo chmod a+r /usr/local/cuda-12.5/include/cudnn*.h /usr/local/cuda-12.5/lib64/libcudnn*
+```
+```bash
+cd ..
+```
+8. To check files are coppied or not.
+```bash
+ls -l /usr/local/cuda-12.5/lib64/libcudnn*
+```
+9. Remove the unnecessary files.
+```bash
+rm -rv cudnn-linux-x86_64-8.9.7.29_cuda12-archive
+rm -rv cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
+```
+## Verify cuda and cudnn is properly installed or not
+```bash
+echo '#include <cudnn.h>
+#include <stdio.h>
+
+int main() {
+    cudnnHandle_t handle;
+    cudnnStatus_t status = cudnnCreate(&handle);
+    if (status == CUDNN_STATUS_SUCCESS){
+        printf("cuDNN successfully initialized.\n");
+    }
+    else {
+        printf("cuDNN initialization failed.\n");
+    }
+    cudnnDestroy(handle);
+    return 0;
+}' > test_cudnn.c
+```
+Compile the code
+```bash
+gcc -o test_cudnn test_cudnn.c -I/usr/local/cuda-12.5/include -L/usr/local/cuda-12.5/lib64 -lcudnn
+```
+Run the compiled code.
+```bash
+./test_cudnn
+```
+Remove those craeted file(optional)
+```bash
+rm -v test_cudnn.c test_cudnn
